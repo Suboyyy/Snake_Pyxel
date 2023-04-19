@@ -18,7 +18,6 @@ class App:
             self.snake.move()
         if self.snake.on_wall():
             quit_app()
-        print(self.snake)
 
     def draw(self):
         pyxel.cls(0)
