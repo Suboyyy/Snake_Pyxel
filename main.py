@@ -16,6 +16,8 @@ class App:
             self.snake.grow()
         if pyxel.frame_count % 30 == 0:
             self.snake.move()
+        if self.snake.on_wall():
+            quit_app()
         print(self.snake)
 
     def draw(self):
@@ -66,6 +68,13 @@ class Snake:
             pyxel.blt(self.pos[0], self.pos[1], 0, 32 + self.direction[0] + self.direction[1] * 2, 24, 8, 8, 2)
         if self.next is not None:
             self.next.draw()
+
+    def on_wall(self):
+        return 0 > self.pos[0] or self.pos[0] > 128 or 0 > self.pos[1] or self.pos[1] > 128
+
+
+def quit_app():
+    pyxel.quit()
 
 
 App()
