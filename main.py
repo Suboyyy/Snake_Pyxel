@@ -15,8 +15,6 @@ class App:
         pyxel.run(self.update, self.draw)
 
     def update(self):
-        if pyxel.frame_count % 120 == 0:
-            self.snake.grow()
         if pyxel.frame_count % 30 == 0:
             self.snake.move()
         if self.snake.on_wall():
