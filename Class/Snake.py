@@ -45,4 +45,4 @@ class Snake:
             self.next.draw()
 
     def on_wall(self):
-        return 0 > self.pos[0] or self.pos[0] > 128 or 0 > self.pos[1] or self.pos[1] > 128
+        return 0 > self.pos[0] or self.pos[0] > 127 or 0 > self.pos[1] or self.pos[1] > 127
