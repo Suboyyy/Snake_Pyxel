@@ -45,8 +45,6 @@ class Snake:
         return self.next.lenght() + 1
 
     def move(self, dir_before=None):
-        if self.next is not None:
-            self.next.move()
         self.pos = [self.pos[x] + self.direction[x] for x in range(2)]
         temp_dir = self.direction
         if dir_before is not None:
@@ -73,7 +71,7 @@ class Snake:
             self.next.draw()
 
     def on_wall(self):
-        return 0 > self.pos[0] or self.pos[0] > 128 or 0 > self.pos[1] or self.pos[1] > 128
+        return 0 > self.pos[0] or self.pos[0] > 127 or 0 > self.pos[1] or self.pos[1] > 127
 
 
 def quit_app():
