@@ -13,23 +13,23 @@ class App:
         self.snake.grow()
         self.fruit = Fruit()
 
-        self.dir_already_change = False
+        self.dir_change = False
 
         pyxel.run(self.update, self.draw)
 
     def update(self):
         if pyxel.frame_count % 15 == 0:
             self.snake.move()
-            self.dir_already_change = False
+            self.dir_change = False
         if self.snake.on_wall() or self.snake.on_tail(self.snake.pos):
             quit_app()
-        if not self.dir_already_change:
+        if not self.dir_change:
             if pyxel.btnp(pyxel.KEY_RIGHT):
                 self.snake.change_direction([-self.snake.direction[1], self.snake.direction[0]])
-                self.dir_already_change = True
+                self.dir_change = True
             elif pyxel.btnp(pyxel.KEY_LEFT):
                 self.snake.change_direction([self.snake.direction[1], -self.snake.direction[0]])
-                self.dir_already_change = True
+                self.dir_change = True
         if self.snake.pos == self.fruit.pos:
             self.snake.grow()
             self.fruit.pos = None
