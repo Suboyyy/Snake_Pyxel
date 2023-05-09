@@ -17,6 +17,10 @@ class App:
     def update(self):
         if pyxel.frame_count % 30 == 0:
             self.snake.move()
+        if pyxel.btnp(pyxel.KEY_RIGHT):
+            self.snake.change_direction([-self.snake.direction[1], self.snake.direction[0]])
+        elif pyxel.btnp(pyxel.KEY_LEFT):
+            self.snake.change_direction([self.snake.direction[1], -self.snake.direction[0]])
         if self.snake.on_wall():
             quit_app()
         if self.fruit.pos is None:

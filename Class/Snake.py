@@ -17,14 +17,12 @@ class Snake:
         return self.next.lenght() + 1
 
     def move(self, dir_before=None):
-        if self.next is not None:
-            self.next.move()
         self.pos = [self.pos[x] + self.direction[x] for x in range(2)]
-        """temp_dir = self.direction
+        temp_dir = self.direction
         if dir_before is not None:
             self.direction = dir_before
         if self.next is not None:
-            self.next.move(temp_dir)"""
+            self.next.move(temp_dir)
 
     def change_direction(self, direction):
         self.direction = direction
