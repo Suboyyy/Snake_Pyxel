@@ -13,7 +13,7 @@ class Fruit:
             while True:
                 can_spawn = False
                 pos = [8 * randint(0, 15), 8 * randint(0, 15)]
-                while snake.next is not None:
+                while snake is not None:
                     if snake.pos == pos:
                         can_spawn = False
                         break
