@@ -44,3 +44,12 @@ class Snake:
 
     def on_wall(self):
         return 0 > self.pos[0] or self.pos[0] > 127 or 0 > self.pos[1] or self.pos[1] > 127
+
+    def on_tail(self, head):
+        if not self.head:
+            if self.pos == head:
+                return True
+        if self.next is not None:
+            return self.next.on_tail(head)
+        return False
+
