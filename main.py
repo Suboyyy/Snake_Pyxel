@@ -10,6 +10,7 @@ class App:
         pyxel.load("snake.pyxres")
 
         self.snake = Snake([64, 64], [0, -8], True)
+        self.snake.grow()
         self.fruit = Fruit()
 
         pyxel.run(self.update, self.draw)
